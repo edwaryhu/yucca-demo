@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yucca Packaging - Packaging that Performs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700&display=swap" rel="stylesheet">
+    <!-- GSAP + Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+</head>
+<body>
+
+<!-- INTRO LOADER -->
+<div class="intro-loader">
+    <div class="intro-loader-bg"></div>
+    <svg class="intro-loader-logo" width="265" height="78" viewBox="0 0 265 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g class="logo-icon">
+            <path d="M53.1405 1.34251C54.9017 -0.421559 57.728 -0.451042 59.4534 1.27722L68.6296 10.4682C70.3551 12.1965 70.3256 15.0273 68.5644 16.7914L38.5107 46.8124C37.5075 47.8144 38.216 49.531 39.6328 49.531H65.2993C67.8424 49.531 69.9048 51.5126 69.9052 53.9564V65.5738C69.9052 68.0178 67.8426 69.999 65.2993 69.999H14.2134C13.7487 69.999 13.3076 69.9416 12.8928 69.8405C12.0493 69.6783 11.236 69.2566 10.5603 68.5799L1.38415 59.3889C-0.341311 57.6606 -0.524492 54.9525 1.23673 53.1885L16.2774 38.164C16.9024 37.5396 16.8997 36.5247 16.2713 35.9039L1.32673 21.1374C0.485169 20.3059 0.0108358 19.1708 0.010752 17.9867V4.44503C0.010752 2.001 1.98886 0.0183534 4.42891 0.0181833H16.0275C18.4677 0.0182448 20.4457 2.00093 20.4457 4.44503V30.1646C20.4457 31.5816 22.1552 32.2923 23.1569 31.2917L53.1405 1.34251Z" fill="#12271D"/>
+        </g>
+        <g class="logo-yucca">
+            <path d="M178.34 31.965C172.745 31.965 169.246 29.4335 169.246 25.2359C169.246 21.1898 172.335 18.4636 177.39 18.4636H184.864C184.994 18.4636 185.08 18.3771 185.08 18.2473V17.1005C185.08 14.331 183.287 12.7948 179.809 12.7948C176.871 12.7948 175.035 13.9848 174.451 16.3216C174.43 16.4514 174.344 16.5163 174.214 16.5163H170.326C170.196 16.5163 170.109 16.4297 170.131 16.2783C170.865 11.9293 174.257 9.35449 179.787 9.35449C185.62 9.35449 189.292 12.2755 189.292 17.4683V27.0534C189.292 27.7241 189.616 28.0704 190.286 28.0704H191.28C191.409 28.0704 191.496 28.157 191.496 28.2868V31.3159C191.496 31.4457 191.409 31.5322 191.28 31.5322H188.623C186.895 31.5322 185.814 30.9481 185.404 29.6499C185.361 29.4767 185.274 29.4335 185.21 29.5201C183.74 31.1645 181.472 31.965 178.34 31.965Z" fill="#12271D"/><path d="M157.397 31.965C150.938 31.965 146.617 27.4645 146.617 20.6273C146.617 13.8333 150.938 9.35449 157.397 9.35449C162.56 9.35449 166.599 12.2755 167.269 17.5549C167.29 17.7064 167.182 17.7928 167.053 17.7928H163.467C163.337 17.7928 163.272 17.728 163.229 17.5982C162.646 14.6988 160.464 12.9246 157.462 12.9246C153.4 12.9246 150.916 15.8672 150.916 20.6273C150.916 25.409 153.378 28.3733 157.418 28.3733C160.399 28.3733 162.603 26.6423 163.207 23.7646C163.229 23.6348 163.316 23.5699 163.445 23.5699H167.031C167.161 23.5699 167.269 23.6564 167.247 23.808C166.513 29.044 162.387 31.965 157.397 31.965Z" fill="#12271D"/><path d="M134.812 31.965C128.353 31.965 124.032 27.4645 124.032 20.6273C124.032 13.8333 128.353 9.35449 134.812 9.35449C139.975 9.35449 144.014 12.2755 144.684 17.5549C144.706 17.7064 144.597 17.7928 144.468 17.7928H140.882C140.752 17.7928 140.687 17.728 140.644 17.5982C140.061 14.6988 137.879 12.9246 134.876 12.9246C130.815 12.9246 128.331 15.8672 128.331 20.6273C128.331 25.409 130.793 28.3733 134.833 28.3733C137.814 28.3733 140.017 26.6423 140.622 23.7646C140.644 23.6348 140.731 23.5699 140.86 23.5699H144.446C144.575 23.5699 144.684 23.6564 144.662 23.808C143.928 29.044 139.802 31.965 134.812 31.965Z" fill="#12271D"/><path d="M121.147 9.78711C121.278 9.78711 121.363 9.8736 121.363 10.0034V31.3157C121.363 31.4455 121.278 31.532 121.147 31.532H117.67C117.54 31.532 117.454 31.4672 117.432 31.3373L117.108 29.8444C117.065 29.6713 116.956 29.628 116.827 29.7578C115.207 31.2725 113.09 31.9648 110.757 31.9648C105.163 31.9648 101.879 29.0871 101.879 23.7644V10.0034C101.879 9.8736 101.965 9.78711 102.095 9.78711H105.983C106.113 9.78711 106.199 9.8736 106.199 10.0034V23.0072C106.199 26.4258 108.143 28.3298 111.6 28.3298C114.97 28.3298 117.022 26.1445 117.022 22.6177V10.0034C117.022 9.8736 117.108 9.78711 117.238 9.78711H121.147Z" fill="#12271D"/><path d="M89.2521 31.5321C89.1219 31.5321 89.0363 31.4456 89.0363 31.3157V17.1869C89.0363 17.1003 88.9925 16.9921 88.9497 16.9056L78.667 0.764525C78.5806 0.613067 78.6238 0.504883 78.7966 0.504883H83.3114C83.4194 0.504883 83.5059 0.569793 83.5706 0.65634L91.1094 12.8163C91.1959 12.9461 91.3262 12.9461 91.4118 12.8163L98.9947 0.65634C99.0594 0.569793 99.1459 0.504883 99.2534 0.504883H103.725C103.898 0.504883 103.942 0.613067 103.855 0.764525L93.637 16.7974C93.5942 16.884 93.5505 16.9921 93.5505 17.0787V31.3157C93.5505 31.4456 93.464 31.5321 93.3346 31.5321H89.2521Z" fill="#12271D"/>
+        </g>
+        <g class="logo-packaging">
+            <path d="M255.05 77.9764C249.758 77.9764 246.172 75.6613 245.438 71.4637C245.416 71.3123 245.502 71.2257 245.632 71.2257H248.505C248.635 71.2257 248.721 71.2906 248.742 71.4204C249.347 73.9303 251.681 75.4665 255.115 75.4665C259.285 75.4665 261.877 72.7186 261.877 68.2614V66.0329C261.877 65.8381 261.747 65.7732 261.617 65.9679C260.213 68.2182 257.664 69.6029 254.661 69.6029C248.764 69.6029 244.768 65.3621 244.768 58.7412C244.768 52.1637 248.764 47.9229 254.618 47.9229C257.6 47.9229 260.127 49.221 261.596 51.4063C261.704 51.5578 261.833 51.5578 261.855 51.3415L262.136 48.5719C262.158 48.4204 262.244 48.3772 262.373 48.3772H264.772C264.901 48.3772 264.988 48.4638 264.988 48.5936V68.2182C264.988 74.3414 261.337 77.9764 255.05 77.9764Z" fill="#12271D"/><path d="M83.2251 69.7323C83.0955 69.7323 83.009 69.6457 83.009 69.5159V38.9214C83.009 38.7917 83.0955 38.7051 83.2251 38.7051H94.5443C100.118 38.7051 104.2 42.7512 104.2 48.3335C104.2 53.9158 100.118 57.9835 94.5443 57.9835H86.5086C86.379 57.9835 86.2925 58.07 86.2925 58.1998V69.5159C86.2925 69.6457 86.2062 69.7323 86.0765 69.7323H83.2251Z" fill="#12271D"/>
+        </g>
+    </svg>
+</div>
+
+<div class="nav-bg"></div>
+
+<!-- HEADER -->
+<header class="header">
+    <a class="h-logo" href="/" aria-label="Home">
+        <svg width="265" height="78" viewBox="0 0 265 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g class="icon">
+                <path d="M53.1405 1.34251C54.9017 -0.421559 57.728 -0.451042 59.4534 1.27722L68.6296 10.4682C70.3551 12.1965 70.3256 15.0273 68.5644 16.7914L38.5107 46.8124C37.5075 47.8144 38.216 49.531 39.6328 49.531H65.2993C67.8424 49.531 69.9048 51.5126 69.9052 53.9564V65.5738C69.9052 68.0178 67.8426 69.999 65.2993 69.999H14.2134C13.7487 69.999 13.3076 69.9416 12.8928 69.8405C12.0493 69.6783 11.236 69.2566 10.5603 68.5799L1.38415 59.3889C-0.341311 57.6606 -0.524492 54.9525 1.23673 53.1885L16.2774 38.164C16.9024 37.5396 16.8997 36.5247 16.2713 35.9039L1.32673 21.1374C0.485169 20.3059 0.0108358 19.1708 0.010752 17.9867V4.44503C0.010752 2.001 1.98886 0.0183534 4.42891 0.0181833H16.0275C18.4677 0.0182448 20.4457 2.00093 20.4457 4.44503V30.1646C20.4457 31.5816 22.1552 32.2923 23.1569 31.2917L53.1405 1.34251Z" fill="#12271D"/>
+            </g>
+            <g class="yucca">
+                <path d="M178.34 31.965C172.745 31.965 169.246 29.4335 169.246 25.2359C169.246 21.1898 172.335 18.4636 177.39 18.4636H184.864C184.994 18.4636 185.08 18.3771 185.08 18.2473V17.1005C185.08 14.331 183.287 12.7948 179.809 12.7948C176.871 12.7948 175.035 13.9848 174.451 16.3216C174.43 16.4514 174.344 16.5163 174.214 16.5163H170.326C170.196 16.5163 170.109 16.4297 170.131 16.2783C170.865 11.9293 174.257 9.35449 179.787 9.35449C185.62 9.35449 189.292 12.2755 189.292 17.4683V27.0534C189.292 27.7241 189.616 28.0704 190.286 28.0704H191.28C191.409 28.0704 191.496 28.157 191.496 28.2868V31.3159C191.496 31.4457 191.409 31.5322 191.28 31.5322H188.623C186.895 31.5322 185.814 30.9481 185.404 29.6499C185.361 29.4767 185.274 29.4335 185.21 29.5201C183.74 31.1645 181.472 31.965 178.34 31.965ZM178.751 28.5031C182.92 28.5031 185.166 26.4476 185.166 22.6828V22.2068C185.166 22.077 185.08 21.9904 184.95 21.9904H177.735C175.122 21.9904 173.588 23.1588 173.588 25.1277C173.588 27.2049 175.381 28.5031 178.751 28.5031Z" fill="#12271D"/>
+                <path d="M157.397 31.965C150.938 31.965 146.617 27.4645 146.617 20.6273C146.617 13.8333 150.938 9.35449 157.397 9.35449C162.56 9.35449 166.599 12.2755 167.269 17.5549C167.29 17.7064 167.182 17.7928 167.053 17.7928H163.467C163.337 17.7928 163.272 17.728 163.229 17.5982C162.646 14.6988 160.464 12.9246 157.462 12.9246C153.4 12.9246 150.916 15.8672 150.916 20.6273C150.916 25.409 153.378 28.3733 157.418 28.3733C160.399 28.3733 162.603 26.6423 163.207 23.7646C163.229 23.6348 163.316 23.5699 163.445 23.5699H167.031C167.161 23.5699 167.269 23.6564 167.247 23.808C166.513 29.044 162.387 31.965 157.397 31.965Z" fill="#12271D"/>
+                <path d="M134.812 31.965C128.353 31.965 124.032 27.4645 124.032 20.6273C124.032 13.8333 128.353 9.35449 134.812 9.35449C139.975 9.35449 144.014 12.2755 144.684 17.5549C144.706 17.7064 144.597 17.7928 144.468 17.7928H140.882C140.752 17.7928 140.687 17.728 140.644 17.5982C140.061 14.6988 137.879 12.9246 134.876 12.9246C130.815 12.9246 128.331 15.8672 128.331 20.6273C128.331 25.409 130.793 28.3733 134.833 28.3733C137.814 28.3733 140.017 26.6423 140.622 23.7646C140.644 23.6348 140.731 23.5699 140.86 23.5699H144.446C144.575 23.5699 144.684 23.6564 144.662 23.808C143.928 29.044 139.802 31.965 134.812 31.965Z" fill="#12271D"/>
+                <path d="M121.147 9.78711C121.278 9.78711 121.363 9.8736 121.363 10.0034V31.3157C121.363 31.4455 121.278 31.532 121.147 31.532H117.67C117.54 31.532 117.454 31.4672 117.432 31.3373L117.108 29.8444C117.065 29.6713 116.956 29.628 116.827 29.7578C115.207 31.2725 113.09 31.9648 110.757 31.9648C105.163 31.9648 101.879 29.0871 101.879 23.7644V10.0034C101.879 9.8736 101.965 9.78711 102.095 9.78711H105.983C106.113 9.78711 106.199 9.8736 106.199 10.0034V23.0072C106.199 26.4258 108.143 28.3298 111.6 28.3298C114.97 28.3298 117.022 26.1445 117.022 22.6177V10.0034C117.022 9.8736 117.108 9.78711 117.238 9.78711H121.147Z" fill="#12271D"/>
+                <path d="M89.2521 31.5321C89.1219 31.5321 89.0363 31.4456 89.0363 31.3157V17.1869C89.0363 17.1003 88.9925 16.9921 88.9497 16.9056L78.667 0.764525C78.5806 0.613067 78.6238 0.504883 78.7966 0.504883H83.3114C83.4194 0.504883 83.5059 0.569793 83.5706 0.65634L91.1094 12.8163C91.1959 12.9461 91.3262 12.9461 91.4118 12.8163L98.9947 0.65634C99.0594 0.569793 99.1459 0.504883 99.2534 0.504883H103.725C103.898 0.504883 103.942 0.613067 103.855 0.764525L93.637 16.7974C93.5942 16.884 93.5505 16.9921 93.5505 17.0787V31.3157C93.5505 31.4456 93.464 31.5321 93.3346 31.5321H89.2521Z" fill="#12271D"/>
+            </g>
+            <g class="packaging">
+                <path d="M255.05 77.9764C249.758 77.9764 246.172 75.6613 245.438 71.4637C245.416 71.3123 245.502 71.2257 245.632 71.2257H248.505C248.635 71.2257 248.721 71.2906 248.742 71.4204C249.347 73.9303 251.681 75.4665 255.115 75.4665C259.285 75.4665 261.877 72.7186 261.877 68.2614V66.0329C261.877 65.8381 261.747 65.7732 261.617 65.9679C260.213 68.2182 257.664 69.6029 254.661 69.6029C248.764 69.6029 244.768 65.3621 244.768 58.7412C244.768 52.1637 248.764 47.9229 254.618 47.9229C257.6 47.9229 260.127 49.221 261.596 51.4063C261.704 51.5578 261.833 51.5578 261.855 51.3415L262.136 48.5719C262.158 48.4204 262.244 48.3772 262.373 48.3772H264.772C264.901 48.3772 264.988 48.4638 264.988 48.5936V68.2182C264.988 74.3414 261.337 77.9764 255.05 77.9764ZM255.029 66.9849C259.241 66.9849 262.028 63.6961 262.028 58.7412C262.028 53.808 259.241 50.5409 255.029 50.5409C250.687 50.5409 247.792 53.808 247.792 58.7412C247.792 63.6961 250.708 66.9849 255.029 66.9849Z" fill="#12271D"/>
+                <path d="M223.76 69.7327C223.63 69.7327 223.544 69.6462 223.544 69.5163V48.5936C223.544 48.4638 223.63 48.3772 223.76 48.3772H226.222C226.352 48.3772 226.417 48.4204 226.439 48.5719L226.697 50.4759C226.719 50.6491 226.849 50.6923 226.979 50.5409C228.491 48.8315 230.672 47.9229 233.243 47.9229C238.579 47.9229 241.754 50.8005 241.754 55.9501V69.5163C241.754 69.6462 241.667 69.7327 241.538 69.7327H238.816C238.687 69.7327 238.601 69.6462 238.601 69.5163V56.4261C238.601 52.7262 236.44 50.6491 232.682 50.6491C229.009 50.6491 226.697 53.0941 226.697 56.967V69.5163C226.697 69.6462 226.611 69.7327 226.482 69.7327H223.76Z" fill="#12271D"/>
+                <path d="M216.555 69.7323C216.425 69.7323 216.339 69.6457 216.339 69.5159V48.5931C216.339 48.4633 216.425 48.3767 216.555 48.3767H219.277C219.406 48.3767 219.493 48.4633 219.493 48.5931V69.5159C219.493 69.6457 219.406 69.7323 219.277 69.7323H216.555ZM216.253 43.0973C216.123 43.0973 216.036 43.0108 216.036 42.881V38.9214C216.036 38.7917 216.123 38.7051 216.253 38.7051H219.579C219.709 38.7051 219.795 38.7917 219.795 38.9214V42.881C219.795 43.0108 219.709 43.0973 219.579 43.0973H216.253Z" fill="#12271D"/>
+                <path d="M202.373 77.9764C197.081 77.9764 193.495 75.6613 192.76 71.4637C192.739 71.3123 192.825 71.2257 192.954 71.2257H195.827C195.958 71.2257 196.043 71.2906 196.065 71.4204C196.67 73.9303 199.003 75.4665 202.437 75.4665C206.607 75.4665 209.199 72.7186 209.199 68.2614V66.0329C209.199 65.8381 209.069 65.7732 208.94 65.9679C207.536 68.2182 204.987 69.6029 201.984 69.6029C196.087 69.6029 192.09 65.3621 192.09 58.7412C192.09 52.1637 196.087 47.9229 201.941 47.9229C204.922 47.9229 207.449 49.221 208.918 51.4063C209.027 51.5578 209.156 51.5578 209.178 51.3415L209.458 48.5719C209.48 48.4204 209.567 48.3772 209.696 48.3772H212.094C212.224 48.3772 212.309 48.4638 212.309 48.5936V68.2182C212.309 74.3414 208.659 77.9764 202.373 77.9764ZM202.351 66.9849C206.564 66.9849 209.35 63.6961 209.35 58.7412C209.35 53.808 206.564 50.5409 202.351 50.5409C198.01 50.5409 195.115 53.808 195.115 58.7412C195.115 63.6961 198.031 66.9849 202.351 66.9849Z" fill="#12271D"/>
+                <path d="M178.513 70.1655C173.177 70.1655 169.851 67.7638 169.851 63.761C169.851 59.888 172.81 57.3781 177.713 57.3781H185.663C185.793 57.3781 185.879 57.2916 185.879 57.1618V55.6039C185.879 52.2935 183.849 50.5193 180.003 50.5193C176.612 50.5193 174.538 51.9689 173.933 54.8466C173.911 54.9765 173.826 55.0413 173.696 55.0413H170.952C170.801 55.0413 170.736 54.9548 170.758 54.8033C171.514 50.5193 174.668 47.9229 180.003 47.9229C185.448 47.9229 188.947 50.714 188.947 55.777V66.0545C188.947 66.7685 189.314 67.1363 190.026 67.1363H191.107C191.237 67.1363 191.323 67.2229 191.323 67.3527V69.5163C191.323 69.6462 191.237 69.7327 191.107 69.7327H188.925C187.133 69.7327 186.117 68.9538 185.988 67.2662C185.966 67.0714 185.901 67.0281 185.836 67.1363C184.367 69.1702 181.926 70.1655 178.513 70.1655ZM178.772 67.5907C183.438 67.5907 185.922 65.1673 185.922 60.7102V60.2342C185.922 60.1043 185.836 60.0178 185.706 60.0178H177.951C174.841 60.0178 173.004 61.4026 173.004 63.7177C173.004 66.1193 175.078 67.5907 178.772 67.5907Z" fill="#12271D"/>
+                <path d="M165.324 69.7323C165.217 69.7323 165.13 69.7106 165.066 69.6024L158.174 60.0606C158.109 59.9524 158.023 59.9308 157.915 59.9308H154.589C154.459 59.9308 154.372 60.0174 154.372 60.1472V69.5159C154.372 69.6457 154.287 69.7323 154.156 69.7323H151.435C151.305 69.7323 151.219 69.6457 151.219 69.5159V38.9214C151.219 38.7917 151.305 38.7051 151.435 38.7051H154.156C154.287 38.7051 154.372 38.7917 154.372 38.9214V56.8151C154.372 56.9449 154.459 57.0315 154.589 57.0315H157.958C158.067 57.0315 158.153 56.9882 158.218 56.9017L165.152 48.5066C165.217 48.42 165.303 48.3767 165.411 48.3767H168.652C168.824 48.3767 168.889 48.4849 168.781 48.6364L160.875 58.2648C160.788 58.3513 160.788 58.4595 160.853 58.5677L168.803 69.4726C168.91 69.6024 168.846 69.7323 168.673 69.7323H165.324Z" fill="#12271D"/>
+                <path d="M138.484 70.1655C132.327 70.1655 128.223 65.7732 128.223 59.0225C128.223 52.3367 132.327 47.9229 138.484 47.9229C143.388 47.9229 147.211 50.8222 147.924 55.7553C147.946 55.9068 147.837 55.9934 147.708 55.9934H145.18C145.051 55.9934 144.986 55.9285 144.942 55.7987C144.317 52.5964 141.854 50.6058 138.527 50.6058C134.099 50.6058 131.333 53.8513 131.333 59.0225C131.333 64.2154 134.099 67.5042 138.505 67.5042C141.811 67.5042 144.273 65.5352 144.921 62.3762C144.964 62.2464 145.029 62.1815 145.159 62.1815H147.665C147.794 62.1815 147.881 62.268 147.859 62.4195C147.103 67.3094 143.236 70.1655 138.484 70.1655Z" fill="#12271D"/>
+                <path d="M114.646 70.1655C109.31 70.1655 105.983 67.7638 105.983 63.761C105.983 59.888 108.943 57.3781 113.846 57.3781H121.796C121.925 57.3781 122.012 57.2916 122.012 57.1618V55.6039C122.012 52.2935 119.982 50.5193 116.136 50.5193C112.745 50.5193 110.671 51.9689 110.066 54.8466C110.044 54.9765 109.958 55.0413 109.828 55.0413H107.085C106.933 55.0413 106.869 54.9548 106.891 54.8033C107.647 50.5193 110.8 47.9229 116.136 47.9229C121.58 47.9229 125.08 50.714 125.08 55.777V66.0545C125.08 66.7685 125.447 67.1363 126.159 67.1363H127.239C127.37 67.1363 127.455 67.2229 127.455 67.3527V69.5163C127.455 69.6462 127.37 69.7327 127.239 69.7327H125.058C123.264 69.7327 122.25 68.9538 122.12 67.2662C122.098 67.0714 122.034 67.0281 121.969 67.1363C120.5 69.1702 118.059 70.1655 114.646 70.1655ZM114.904 67.5907C119.571 67.5907 122.055 65.1673 122.055 60.7102V60.2342C122.055 60.1043 121.969 60.0178 121.839 60.0178H114.084C110.973 60.0178 109.137 61.4026 109.137 63.7177C109.137 66.1193 111.211 67.5907 114.904 67.5907Z" fill="#12271D"/>
+                <path d="M83.2251 69.7323C83.0955 69.7323 83.009 69.6457 83.009 69.5159V38.9214C83.009 38.7917 83.0955 38.7051 83.2251 38.7051H94.5443C100.118 38.7051 104.2 42.7512 104.2 48.3335C104.2 53.9158 100.118 57.9835 94.5443 57.9835H86.5086C86.379 57.9835 86.2925 58.07 86.2925 58.1998V69.5159C86.2925 69.6457 86.2062 69.7323 86.0765 69.7323H83.2251ZM86.2925 54.9543C86.2925 55.0841 86.379 55.1707 86.5086 55.1707H94.0907C98.022 55.1707 100.917 52.2714 100.917 48.3335C100.917 44.3956 98.022 41.5395 94.0907 41.5395H86.5086C86.379 41.5395 86.2925 41.626 86.2925 41.7558V54.9543Z" fill="#12271D"/>
+            </g>
+        </svg>
+    </a>
+
+    <nav class="nav">
+        <ul class="n-menu">
+            <li class="n-item n-item-has-submenu" data-id="shop">
+                <a href="/shop" class="n-link">
+                    <span class="n-text">Shop</span>
+                    <svg class="n-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="1.5"/></svg>
+                </a>
+            </li>
+            <li class="n-item n-item-has-submenu" data-id="solutions">
+                <span class="n-link">
+                    <span class="n-text">Packaging Solutions</span>
+                    <svg class="n-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="1.5"/></svg>
+                </span>
+            </li>
+            <li class="n-item"><a href="/about" class="n-link"><span class="n-text">Company</span></a></li>
+            <li class="n-item n-item-has-submenu" data-id="resources">
+                <span class="n-link">
+                    <span class="n-text">Resources</span>
+                    <svg class="n-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="1.5"/></svg>
+                </span>
+            </li>
+            <li class="n-item"><a href="/contact" class="n-link"><span class="n-text">Contact Us</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- MEGA MENUS -->
+    <div class="nav-submenus">
+
+        <!-- SHOP MEGA MENU -->
+        <div class="n-submenu" data-id="shop">
+            <div class="n-submenu-inner">
+                <div class="n-submenu-left">
+                    <div class="n-submenu-links">
+                        <a href="/shop?product_cat=promo" class="n-submenu-link">
+                            <span class="link-text">Promotions</span>
+                            <span class="link-label">Coming Soon</span>
+                        </a>
+                        <a href="/shop?product_cat=coffee" class="n-submenu-link">
+                            <span class="link-text">Coffee</span>
+                            <span class="link-arrow">&rarr;</span>
+                        </a>
+                        <a href="/shop?product_cat=smoothies" class="n-submenu-link">
+                            <span class="link-text">Smoothies</span>
+                            <span class="link-arrow">&rarr;</span>
+                        </a>
+                        <a href="/shop?product_cat=deli" class="n-submenu-link">
+                            <span class="link-text">Deli</span>
+                            <span class="link-arrow">&rarr;</span>
+                        </a>
+                        <a href="/shop?product_cat=takeout" class="n-submenu-link">
+                            <span class="link-text">Takeout</span>
+                            <span class="link-arrow">&rarr;</span>
+                        </a>
+                        <a href="/shop?packaging_type=cutlery" class="n-submenu-link">
+                            <span class="link-text">Cutlery</span>
+                            <span class="link-arrow">&rarr;</span>
+                        </a>
+                        <a href="/shop?packaging_type=bags" class="n-submenu-link">
+                            <span class="link-text">Bags</span>
+                            <span class="link-arrow">&rarr;</span>
+                        </a>
+                        <a href="/shop?product_cat=extras" class="n-submenu-link">
+                            <span class="link-text">Extras</span>
+                            <span class="link-arrow">&rarr;</span>
+                        </a>
+                    </div>
+                    <div class="n-submenu-divider"></div>
+                    <a href="/shop" class="n-submenu-cta">
+                        <span class="link-text">Shop all products</span>
+                        <span class="link-arrow">&rarr;</span>
+                    </a>
+                </div>
+                <div class="n-submenu-right">
+                    <div class="n-card n-card-enquire">
+                        <a href="/custom-solutions" class="n-card-cover-link"></a>
+                        <div class="n-card-image">
+                            <img src="https://yucca.co.za/wp-content/uploads/2025/05/menu.png" alt="Custom packaging">
+                        </div>
+                        <div class="n-card-content">
+                            <span class="n-card-title">Looking for something specific?</span>
+                            <p class="n-card-text">We can customise your packaging to fit your needs</p>
+                        </div>
+                        <div class="n-card-footer">
+                            <span class="link-text">Explore</span>
+                            <span class="link-arrow">&rarr;</span>
+                        </div>
+                    </div>
+                    <div class="n-card-stack">
+                        <div class="n-card n-card-loyalty">
+                            <a href="/programmes" class="n-card-cover-link"></a>
+                            <div class="n-card-content">
+                                <span class="n-card-title">Join our loyalty programme to earn 5% back</span>
+                            </div>
+                            <div class="n-card-footer">
+                                <span class="link-text">Discover Now</span>
+                                <span class="link-arrow">&rarr;</span>
+                            </div>
+                        </div>
+                        <div class="n-card n-card-promo">
+                            <a href="/shop" class="n-card-cover-link"></a>
+                            <div class="n-card-content">
+                                <span class="n-card-title">Promotions return soon</span>
+                                <p class="n-card-text">We believe in fair, transparent pricing. From time to time, we'll introduce limited offers on select ranges.</p>
+                            </div>
+                            <div class="n-card-footer">
+                                <span class="link-text">Shop our products</span>
+                                <span class="link-arrow">&rarr;</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PACKAGING SOLUTIONS MEGA MENU -->
+        <div class="n-submenu" data-id="solutions">
+            <div class="n-submenu-inner n-submenu-solutions">
+                <div class="n-card n-card-solution">
+                    <a href="/food-service" class="n-card-cover-link"></a>
+                    <div class="n-card-bg">
+                        <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-for-cold-warm-hot-food-card.jpg" alt="Food Service">
+                    </div>
+                    <div class="n-card-content">
+                        <span class="n-card-title">Food Service</span>
+                    </div>
+                    <div class="n-card-footer">
+                        <span class="link-text">Explore</span>
+                        <span class="link-arrow">&rarr;</span>
+                    </div>
+                </div>
+                <div class="n-card n-card-solution">
+                    <a href="/food-processing" class="n-card-cover-link"></a>
+                    <div class="n-card-bg">
+                        <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-food-processing-map-for-meat-seafood-poultry-card.jpg" alt="Food Processing">
+                    </div>
+                    <div class="n-card-content">
+                        <span class="n-card-title">Food Processing</span>
+                    </div>
+                    <div class="n-card-footer">
+                        <span class="link-text">Explore</span>
+                        <span class="link-arrow">&rarr;</span>
+                    </div>
+                </div>
+                <div class="n-card n-card-solution">
+                    <a href="/agriculture" class="n-card-cover-link"></a>
+                    <div class="n-card-bg">
+                        <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-agriculture-strawberry-blueberry-gooseberry-grapes-kiwi-avo-card.jpg" alt="Agriculture">
+                    </div>
+                    <div class="n-card-content">
+                        <span class="n-card-title">Agriculture</span>
+                    </div>
+                    <div class="n-card-footer">
+                        <span class="link-text">Explore</span>
+                        <span class="link-arrow">&rarr;</span>
+                    </div>
+                </div>
+                <div class="n-card n-card-enquire">
+                    <a href="/custom-solutions" class="n-card-cover-link"></a>
+                    <div class="n-card-image">
+                        <img src="https://yucca.co.za/wp-content/uploads/2025/05/menu.png" alt="Custom packaging">
+                    </div>
+                    <div class="n-card-content">
+                        <span class="n-card-title">Looking for something specific?</span>
+                        <p class="n-card-text">We can customise your packaging to fit your needs</p>
+                    </div>
+                    <div class="n-card-footer">
+                        <span class="link-text">Explore</span>
+                        <span class="link-arrow">&rarr;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESOURCES MEGA MENU -->
+        <div class="n-submenu" data-id="resources">
+            <div class="n-submenu-inner n-submenu-resources">
+                <div class="n-submenu-links">
+                    <a href="/waitlist" class="n-submenu-link">
+                        <span class="link-text">Waitlist</span>
+                        <span class="link-arrow">&rarr;</span>
+                    </a>
+                    <a href="/programmes" class="n-submenu-link">
+                        <span class="link-text">Yucca Rewards & Direct</span>
+                        <span class="link-arrow">&rarr;</span>
+                    </a>
+                    <a href="/blog" class="n-submenu-link">
+                        <span class="link-text">Case Studies & Blogs</span>
+                        <span class="link-arrow">&rarr;</span>
+                    </a>
+                    <a href="/faq" class="n-submenu-link">
+                        <span class="link-text">FAQs</span>
+                        <span class="link-arrow">&rarr;</span>
+                    </a>
+                </div>
+                <div class="n-submenu-images">
+                    <div class="n-submenu-image">
+                        <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-clear-plastic-bowls2.jpg" alt="Clear plastic bowls">
+                    </div>
+                    <div class="n-submenu-image">
+                        <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-for-cold-warm-hot-food.jpg" alt="Food packaging">
+                    </div>
+                    <div class="n-submenu-image">
+                        <img src="https://yucca.co.za/wp-content/uploads/2025/08/yucca-packaging-grape-packaging-scaled.jpg" alt="Grape packaging">
+                    </div>
+                    <div class="n-submenu-image">
+                        <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-for-food-service-takeout-catering-deli-smoothies-coffee-desserts.jpg" alt="Food service packaging">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="h-actions">
+        <a href="#" class="credit-application">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.66053 7.24356V6.16023H14.3401V7.24356H7.66053ZM7.66053 9.64752V8.56419H14.3401V9.64752H7.66053ZM10.4362 17.5834H5.00033C4.55699 17.5834 4.18227 17.4303 3.87616 17.1242C3.57005 16.8181 3.41699 16.4434 3.41699 16V13.0963H5.41699V2.41669H16.5837V8.80294L15.5003 9.86544V3.50002H6.50033V13.0963H12.2487L11.1653 14.1794H4.50033V16C4.50033 16.1417 4.54824 16.2604 4.64408 16.3563C4.73991 16.4521 4.85866 16.5 5.00033 16.5H10.4362V17.5834ZM12.0966 17.5834V15.5898L16.9235 10.7838L18.888 12.7852L14.0993 17.5834H12.0966Z" fill="#707767"/>
+            </svg>
+            <span>Credit Application</span>
+        </a>
+        <a href="/cart" class="h-cart-btn" aria-label="Cart">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.20708 17.4231C5.84681 17.4231 5.54222 17.2972 5.29333 17.0452C5.04444 16.7934 4.92 16.4873 4.92 16.1269C4.92 15.7666 5.0459 15.462 5.29771 15.2131C5.54965 14.9642 5.85576 14.8398 6.21604 14.8398C6.57632 14.8398 6.8809 14.9657 7.12979 15.2175C7.37868 15.4694 7.50313 15.7756 7.50313 16.1358C7.50313 16.4961 7.37722 16.8007 7.12542 17.0496C6.87347 17.2986 6.56736 17.4231 6.20708 17.4231ZM14.9506 17.4231C14.5903 17.4231 14.2858 17.2972 14.0369 17.0452C13.788 16.7934 13.6635 16.4873 13.6635 16.1269C13.6635 15.7666 13.7894 15.462 14.0413 15.2131C14.2932 14.9642 14.5993 14.8398 14.9596 14.8398C15.3199 14.8398 15.6244 14.9657 15.8733 15.2175C16.1222 15.4694 16.2467 15.7756 16.2467 16.1358C16.2467 16.4961 16.1208 16.8007 15.869 17.0496C15.617 17.2986 15.3109 17.4231 14.9506 17.4231ZM5.28854 4H17.2773L14.5929 10.4231H7.1875L6.08813 12.3398H16.2467V13.4231H4.19396L6.47271 9.50646L3.71167 3.08333H2V2H4.43438L5.28854 4Z" fill="#1D1D1B"/>
+            </svg>
+        </a>
+        <a href="/my-account" class="h-account-btn" aria-label="Account">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.99935 9.74333C9.2806 9.74333 8.67039 9.49249 8.16872 8.99083C7.66692 8.48902 7.41602 7.87874 7.41602 7.15999C7.41602 6.44124 7.66692 5.83104 8.16872 5.32937C8.67039 4.82756 9.2806 4.57666 9.99935 4.57666C10.7181 4.57666 11.3283 4.82756 11.83 5.32937C12.3318 5.83104 12.5827 6.44124 12.5827 7.15999C12.5827 7.87874 12.3318 8.48902 11.83 8.99083C11.3283 9.49249 10.7181 9.74333 9.99935 9.74333ZM4.41602 15.4229V13.9035C4.41602 13.6483 4.49213 13.4023 4.64435 13.1656C4.79657 12.929 5.00949 12.7241 5.2831 12.551C6.00949 12.1334 6.77296 11.8132 7.57352 11.5904C8.37407 11.3676 9.18122 11.2562 9.99497 11.2562C10.8087 11.2562 11.6173 11.3676 12.4208 11.5904C13.2243 11.8132 13.9892 12.1334 14.7156 12.551C14.9892 12.7102 15.2021 12.9116 15.3543 13.1552C15.5066 13.3988 15.5827 13.6483 15.5827 13.9035V15.4229H4.41602Z" fill="#1D1D1B"/>
+            </svg>
+        </a>
+    </div>
+</header>
+
+<main>
+
+<!-- HERO SECTION -->
+<section class="section section-hero">
+    <div class="s-background">
+        <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-homepage-intro-plastic-cups-for-iced-chilled-drinks-2.jpg"
+             alt="Pedestal display of innovative Yucca Packaging cups filled with iced coffee." loading="eager">
+    </div>
+    <div class="s-inner">
+        <div class="s-content">
+            <h1 class="s-title">Packaging that Performs. Innovated for Industry Leaders.</h1>
+        </div>
+        <div class="s-solutions">
+            <a href="/food-service" class="s-solution">
+                <h3 class="s-solution-title"><span class="s-solution-title-text">Food Service</span></h3>
+                <div class="s-solution-hover">
+                    <p class="s-solution-text">Your food service packaging is an extension of your brand experience. Have functional and on-brand items like cups, tubs, bowls, and more readily available for takeout, catering, and deli food. Choose standard containers, customised or designed from scratch.</p>
+                    <span class="s-solution-border"></span>
+                    <span class="s-solution-link">
+                        <span class="s-solution-link-text">Tell me more</span>
+                        <svg class="s-solution-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13.6923 17.6155L12.9845 16.8963L17.073 12.8078H5V11.8078H17.073L12.9845 7.71925L13.6923 7L19 12.3078L13.6923 17.6155Z" fill="#1D1D1B"/></svg>
+                    </span>
+                </div>
+            </a>
+            <a href="/food-processing" class="s-solution">
+                <h3 class="s-solution-title"><span class="s-solution-title-text">Food Processing</span></h3>
+                <div class="s-solution-hover">
+                    <p class="s-solution-text">Keep meat, poultry, and seafood fresh for longer with MAP packaging designed for extended shelf life and compliance. Reliable, food-safe trays and containers.</p>
+                    <span class="s-solution-border"></span>
+                    <span class="s-solution-link">
+                        <span class="s-solution-link-text">Tell me more</span>
+                        <svg class="s-solution-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13.6923 17.6155L12.9845 16.8963L17.073 12.8078H5V11.8078H17.073L12.9845 7.71925L13.6923 7L19 12.3078L13.6923 17.6155Z" fill="#1D1D1B"/></svg>
+                    </span>
+                </div>
+            </a>
+            <a href="/agriculture" class="s-solution">
+                <h3 class="s-solution-title"><span class="s-solution-title-text">Agriculture</span></h3>
+                <div class="s-solution-hover">
+                    <p class="s-solution-text">Ensure produce remains crisp and fresh from harvesting through to retail display with ventilated punnets and trays designed for berries, grapes, and stone fruit.</p>
+                    <span class="s-solution-border"></span>
+                    <span class="s-solution-link">
+                        <span class="s-solution-link-text">Tell me more</span>
+                        <svg class="s-solution-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13.6923 17.6155L12.9845 16.8963L17.073 12.8078H5V11.8078H17.073L12.9845 7.71925L13.6923 7L19 12.3078L13.6923 17.6155Z" fill="#1D1D1B"/></svg>
+                    </span>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- MARQUEE SECTION -->
+<section class="section section-marquee">
+    <div class="s-marquee-wrapper">
+        <figure class="s-marquee-image">
+            <img src="https://yucca.co.za/wp-content/uploads/2025/05/1c9fd89a470793175cfc7f14a7a6e6dc-800x800.webp"
+                 alt="Plastic divider ready meal tray." width="800" height="800">
+        </figure>
+
+        <div class="s-marquees desktop-only">
+            <div class="s-marquee" data-direction="left">
+                <div class="s-marquee-loop">
+                    <div class="s-marquee-item"><span class="s-marquee-text">Yucca Rewards</span></div>
+                    <div class="s-marquee-item"><span class="s-marquee-text">Yucca Direct (B2B)</span></div>
+                    <div class="s-marquee-item"><span class="s-marquee-text">Quality</span></div>
+                    <div class="s-marquee-item"><span class="s-marquee-text">Branding</span></div>
+                </div>
+            </div>
+            <div class="s-marquee" data-direction="right">
+                <div class="s-marquee-loop">
+                    <div class="s-marquee-item"><span class="s-marquee-text">Custom Packaging</span></div>
+                    <div class="s-marquee-item"><span class="s-marquee-text">Sustainable</span></div>
+                    <div class="s-marquee-item"><span class="s-marquee-text">Innovation</span></div>
+                    <div class="s-marquee-item"><span class="s-marquee-text">Partnerships</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="s-marquees mobile-only">
+            <div class="s-marquee" data-direction="left">
+                <div class="s-marquee-loop">
+                    <div class="s-marquee-item"><span class="s-marquee-text">Yucca Rewards</span></div>
+                    <div class="s-marquee-item"><span class="s-marquee-text">Yucca Direct (B2B)</span></div>
+                </div>
+            </div>
+            <div class="s-marquee" data-direction="right">
+                <div class="s-marquee-loop">
+                    <div class="s-marquee-item"><span class="s-marquee-text">Quality</span></div>
+                    <div class="s-marquee-item"><span class="s-marquee-text">Branding</span></div>
+                </div>
+            </div>
+            <div class="s-marquee" data-direction="left">
+                <div class="s-marquee-loop">
+                    <div class="s-marquee-item"><span class="s-marquee-text">Custom Packaging</span></div>
+                    <div class="s-marquee-item"><span class="s-marquee-text">Sustainable</span></div>
+                </div>
+            </div>
+            <div class="s-marquee" data-direction="right">
+                <div class="s-marquee-loop">
+                    <div class="s-marquee-item"><span class="s-marquee-text">Innovation</span></div>
+                    <div class="s-marquee-item"><span class="s-marquee-text">Partnerships</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SOLUTIONS DETAIL SECTION -->
+<section class="section section-industries">
+    <div class="si-backgrounds">
+        <figure class="si-bg is-active" data-index="0">
+            <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-for-food-service-takeout-catering-deli-smoothies-coffee-desserts-1200x853.jpg"
+                 alt="Assorted Yucca Packaging products for food service." loading="lazy">
+        </figure>
+        <figure class="si-bg" data-index="1">
+            <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-meat-poultry-seafood-mince-steak-chicken-and-more-1200x853.jpg"
+                 alt="Assorted Yucca Packaging products for food processing." loading="lazy">
+        </figure>
+        <figure class="si-bg" data-index="2">
+            <img src="https://yucca.co.za/wp-content/uploads/2025/11/yucca-packaging-agriculture-strawberry-blueberry-gooseberry-grapes-kiwi-avo-1200x800.jpg"
+                 alt="Assorted Yucca Packaging products for agriculture." loading="lazy">
+        </figure>
+    </div>
+
+    <div class="si-items">
+        <div class="si-item is-active" data-index="0">
+            <h3 class="si-item-title">
+                <span class="si-item-title-text">Food Service</span>
+            </h3>
+            <span class="si-item-title-extra desktop-only">
+                <span class="si-item-title-text">Food Service</span>
+            </span>
+            <p class="si-item-text desktop-only">
+                Deliver meals that look good, travel well and impress customers with attention to detail. We can help you customise packaging so it matches the quality of your food and reflects the image you want to exude.
+            </p>
+            <span class="si-item-border"></span>
+            <a href="/food-service" class="si-item-link" aria-label="Explore Food Service">
+                <span class="si-item-link-text">Tell me more</span>
+                <span class="si-item-arrows">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13.6923 17.6155L12.9845 16.8963L17.073 12.8078H5V11.8078H17.073L12.9845 7.71925L13.6923 7L19 12.3078L13.6923 17.6155Z" fill="#1D1D1B"/></svg>
+                </span>
+            </a>
+        </div>
+        <div class="si-item" data-index="1">
+            <h3 class="si-item-title">
+                <span class="si-item-title-text">Food Processing</span>
+            </h3>
+            <span class="si-item-title-extra desktop-only">
+                <span class="si-item-title-text">Food Processing</span>
+            </span>
+            <p class="si-item-text desktop-only">
+                Work with Yucca to take the complexity out of food processing. We can help local and international businesses streamline production and maintain product quality.
+            </p>
+            <span class="si-item-border"></span>
+            <a href="/food-processing" class="si-item-link" aria-label="Explore Food Processing">
+                <span class="si-item-link-text">Tell me more</span>
+                <span class="si-item-arrows">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13.6923 17.6155L12.9845 16.8963L17.073 12.8078H5V11.8078H17.073L12.9845 7.71925L13.6923 7L19 12.3078L13.6923 17.6155Z" fill="#1D1D1B"/></svg>
+                </span>
+            </a>
+        </div>
+        <div class="si-item" data-index="2">
+            <h3 class="si-item-title">
+                <span class="si-item-title-text">Agriculture</span>
+            </h3>
+            <span class="si-item-title-extra desktop-only">
+                <span class="si-item-title-text">Agriculture</span>
+            </span>
+            <p class="si-item-text desktop-only">
+                Partner with a team that understands the pace and pressure of agriculture. Whether it's delivering fresh produce worldwide or reducing losses with packaging that protects your harvest and is also retail-ready, we can help.
+            </p>
+            <span class="si-item-border"></span>
+            <a href="/agriculture" class="si-item-link" aria-label="Explore Agriculture">
+                <span class="si-item-link-text">Tell me more</span>
+                <span class="si-item-arrows">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13.6923 17.6155L12.9845 16.8963L17.073 12.8078H5V11.8078H17.073L12.9845 7.71925L13.6923 7L19 12.3078L13.6923 17.6155Z" fill="#1D1D1B"/></svg>
+                </span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- MISSION SECTION -->
+<section class="section section-mission">
+    <div class="s-inner">
+        <div class="s-content">
+            <span class="s-label">Our Mission</span>
+            <h2 class="s-title">We provide world-class, compliant packaging from trusted global partners to food service, food processing, and agricultural businesses across the globe.</h2>
+        </div>
+        <div class="s-stats">
+            <div class="s-stat">
+                <span class="s-stat-figure">500+</span>
+                <span class="s-stat-label">Products Available</span>
+            </div>
+            <div class="s-stat">
+                <span class="s-stat-figure">3</span>
+                <span class="s-stat-label">Industry Sectors</span>
+            </div>
+            <div class="s-stat">
+                <span class="s-stat-figure">15+</span>
+                <span class="s-stat-label">Certifications</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SOLUTIONS SECTION -->
+<section class="section section-solutions" id="solutions">
+    <div class="s-inner">
+        <div class="s-header">
+            <span class="s-label">Packaging Solutions</span>
+            <h2 class="s-title">Designed for Every Industry</h2>
+        </div>
+        <div class="s-cards">
+            <a href="/food-service" class="s-card">
+                <div class="s-card-image">
+                    <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-for-cold-warm-hot-food-card.jpg" alt="Food Service Packaging">
+                </div>
+                <div class="s-card-content">
+                    <h3 class="s-card-title">Food Service</h3>
+                    <p class="s-card-text">Cups, bowls, tubs, clamshells, and more for takeout, catering, and deli food packaging.</p>
+                    <span class="s-card-link">Explore <span class="arrow-icon">&rarr;</span></span>
+                </div>
+            </a>
+            <a href="/food-processing" class="s-card">
+                <div class="s-card-image">
+                    <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-food-processing-map-for-meat-seafood-poultry-card.jpg" alt="Food Processing Packaging">
+                </div>
+                <div class="s-card-content">
+                    <h3 class="s-card-title">Food Processing</h3>
+                    <p class="s-card-text">MAP trays and containers for meat, poultry, seafood, and ready meals with extended shelf life.</p>
+                    <span class="s-card-link">Explore <span class="arrow-icon">&rarr;</span></span>
+                </div>
+            </a>
+            <a href="/agriculture" class="s-card">
+                <div class="s-card-image">
+                    <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-agriculture-strawberry-blueberry-gooseberry-grapes-kiwi-avo-card.jpg" alt="Agriculture Packaging">
+                </div>
+                <div class="s-card-content">
+                    <h3 class="s-card-title">Agriculture</h3>
+                    <p class="s-card-text">Ventilated punnets and trays for berries, grapes, stone fruit, and fresh produce.</p>
+                    <span class="s-card-link">Explore <span class="arrow-icon">&rarr;</span></span>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- NEW PRODUCTS SECTION -->
+<section class="section section-products">
+    <div class="s-inner">
+        <div class="s-header">
+            <span class="s-label">New In</span>
+            <h2 class="s-title">Latest Products</h2>
+            <a href="/shop" class="btn btn-outline">Shop all products</a>
+        </div>
+        <div class="s-products">
+            <a href="/shop" class="s-product">
+                <div class="s-product-image">
+                    <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-for-cold-warm-hot-food.jpg" alt="Single Wall Matte Black Coffee Cup">
+                </div>
+                <div class="s-product-info">
+                    <span class="s-product-name">Single Wall Matte Black Coffee Cup</span>
+                    <span class="s-product-variants">250ml, 350ml</span>
+                    <span class="s-product-price">From R1.09 incl. vat</span>
+                </div>
+            </a>
+            <a href="/shop" class="s-product">
+                <div class="s-product-image">
+                    <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-clear-plastic-bowls2.jpg" alt="Paper Pulp Cup Holder">
+                </div>
+                <div class="s-product-info">
+                    <span class="s-product-name">Paper Pulp Cup Holder</span>
+                    <span class="s-product-variants">2-Holder, 4-Holder</span>
+                    <span class="s-product-price">From R1.55 incl. vat</span>
+                </div>
+            </a>
+            <a href="/shop" class="s-product">
+                <div class="s-product-image">
+                    <img src="https://yucca.co.za/wp-content/uploads/2025/08/yucca-packaging-grape-packaging-scaled.jpg" alt="Dessert Cup 90mm">
+                </div>
+                <div class="s-product-info">
+                    <span class="s-product-name">Dessert Cup 90mm</span>
+                    <span class="s-product-variants">250ml, 350ml</span>
+                    <span class="s-product-price">From R1.38 incl. vat</span>
+                </div>
+            </a>
+            <a href="/shop" class="s-product">
+                <div class="s-product-image">
+                    <img src="https://yucca.co.za/wp-content/uploads/2025/09/yucca-packaging-for-food-service-takeout-catering-deli-smoothies-coffee-desserts.jpg" alt="Dessert Cup Flat Lid 90mm">
+                </div>
+                <div class="s-product-info">
+                    <span class="s-product-name">Dessert Cup Flat Lid 90mm</span>
+                    <span class="s-product-variants">Fits 90mm cups</span>
+                    <span class="s-product-price">From R0.63 incl. vat</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CERTIFICATIONS SECTION -->
+<section class="section section-certifications">
+    <div class="s-inner">
+        <div class="s-header">
+            <span class="s-label">Compliance & Quality</span>
+            <h2 class="s-title">Certified to the Highest Standards</h2>
+            <p class="s-text">All our products meet international food safety and quality certifications, ensuring peace of mind for your business.</p>
+        </div>
+        <div class="s-badges">
+            <div class="s-badge"><span>FDA</span></div>
+            <div class="s-badge"><span>EU 10/2011</span></div>
+            <div class="s-badge"><span>BRCGS</span></div>
+            <div class="s-badge"><span>FSC</span></div>
+            <div class="s-badge"><span>GRS</span></div>
+            <div class="s-badge"><span>BPI</span></div>
+            <div class="s-badge"><span>DIN CERTCO</span></div>
+            <div class="s-badge"><span>ISO 9001</span></div>
+            <div class="s-badge"><span>ISO 14001</span></div>
+            <div class="s-badge"><span>ISO 22000</span></div>
+            <div class="s-badge"><span>ISO 45001</span></div>
+            <div class="s-badge"><span>FSSC 22000</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="section section-cta">
+    <div class="s-inner">
+        <div class="s-content">
+            <h2 class="s-title">Looking for something specific?</h2>
+            <p class="s-text">We can customise your packaging to fit your needs. From bespoke designs to branded solutions.</p>
+            <a href="/custom-solutions" class="btn btn-primary">Explore Custom Solutions</a>
+        </div>
+        <div class="s-image">
+            <img src="https://yucca.co.za/wp-content/uploads/2025/05/menu.png" alt="Custom packaging solutions">
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="section section-faq" id="resources">
+    <div class="s-inner">
+        <div class="s-header">
+            <span class="s-label">FAQs</span>
+            <h2 class="s-title">Common Questions</h2>
+        </div>
+        <div class="s-faqs">
+            <div class="s-faq">
+                <button class="s-faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    <span>What types of packaging do you offer?</span>
+                    <span class="s-faq-icon">+</span>
+                </button>
+                <div class="s-faq-answer">
+                    <p>We offer a comprehensive range of packaging solutions including cups, bowls, tubs, clamshells, trays, bags, cutlery, and more. Our products serve food service, food processing, and agriculture industries.</p>
+                </div>
+            </div>
+            <div class="s-faq">
+                <button class="s-faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    <span>Do you deliver nationwide?</span>
+                    <span class="s-faq-icon">+</span>
+                </button>
+                <div class="s-faq-answer">
+                    <p>Yes, we deliver across South Africa. Our logistics network ensures timely delivery to your business location.</p>
+                </div>
+            </div>
+            <div class="s-faq">
+                <button class="s-faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    <span>Can you deliver globally?</span>
+                    <span class="s-faq-icon">+</span>
+                </button>
+                <div class="s-faq-answer">
+                    <p>Yes, we work with trusted global partners to supply packaging solutions internationally. Contact us for global shipping enquiries.</p>
+                </div>
+            </div>
+            <div class="s-faq">
+                <button class="s-faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    <span>How do I place an order?</span>
+                    <span class="s-faq-icon">+</span>
+                </button>
+                <div class="s-faq-answer">
+                    <p>You can place orders directly through our online shop, or contact our sales team for bulk and custom orders. We also offer credit accounts for qualifying businesses.</p>
+                </div>
+            </div>
+            <div class="s-faq">
+                <button class="s-faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    <span>Do you offer sustainable packaging options?</span>
+                    <span class="s-faq-icon">+</span>
+                </button>
+                <div class="s-faq-answer">
+                    <p>Yes, we offer a range of eco-friendly packaging options including compostable, recyclable, and FSC-certified products. We're committed to providing sustainable alternatives without compromising quality.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="f-inner">
+        <div class="f-top">
+            <div class="f-logo">
+                <svg width="265" height="78" viewBox="0 0 265 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M53.1405 1.34251C54.9017 -0.421559 57.728 -0.451042 59.4534 1.27722L68.6296 10.4682C70.3551 12.1965 70.3256 15.0273 68.5644 16.7914L38.5107 46.8124C37.5075 47.8144 38.216 49.531 39.6328 49.531H65.2993C67.8424 49.531 69.9048 51.5126 69.9052 53.9564V65.5738C69.9052 68.0178 67.8426 69.999 65.2993 69.999H14.2134C13.7487 69.999 13.3076 69.9416 12.8928 69.8405C12.0493 69.6783 11.236 69.2566 10.5603 68.5799L1.38415 59.3889C-0.341311 57.6606 -0.524492 54.9525 1.23673 53.1885L16.2774 38.164C16.9024 37.5396 16.8997 36.5247 16.2713 35.9039L1.32673 21.1374C0.485169 20.3059 0.0108358 19.1708 0.010752 17.9867V4.44503C0.010752 2.001 1.98886 0.0183534 4.42891 0.0181833H16.0275C18.4677 0.0182448 20.4457 2.00093 20.4457 4.44503V30.1646C20.4457 31.5816 22.1552 32.2923 23.1569 31.2917L53.1405 1.34251Z" fill="#FFFDF5"/>
+                </svg>
+            </div>
+            <div class="f-columns">
+                <div class="f-column">
+                    <h4 class="f-column-title">Solutions</h4>
+                    <ul class="f-links">
+                        <li><a href="/food-service">Food Service</a></li>
+                        <li><a href="/food-processing">Food Processing</a></li>
+                        <li><a href="/agriculture">Agriculture</a></li>
+                        <li><a href="/custom-solutions">Custom Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="f-column">
+                    <h4 class="f-column-title">Company</h4>
+                    <ul class="f-links">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/blog">Case Studies & Blogs</a></li>
+                        <li><a href="/programmes">Yucca Rewards</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="f-column">
+                    <h4 class="f-column-title">Resources</h4>
+                    <ul class="f-links">
+                        <li><a href="/shop">Shop</a></li>
+                        <li><a href="/faq">FAQs</a></li>
+                        <li><a href="/waitlist">Waitlist</a></li>
+                        <li><a href="#">Credit Application</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="f-bottom">
+            <div class="f-legal">
+                <span>&copy; 2025 Yucca Packaging. All rights reserved.</span>
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/terms">Terms & Conditions</a>
+            </div>
+            <div class="f-social">
+                <a href="#" aria-label="Facebook">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+                </a>
+                <a href="#" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.5"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// ==========================================
+// LENIS SMOOTH SCROLL
+// ==========================================
+const lenis = new Lenis({
+    duration: 1.0,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    touchMultiplier: 1.5
+});
+
+// Single integration: GSAP ticker drives Lenis (no standalone RAF)
+gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+});
+gsap.ticker.lagSmoothing(0);
+
+// Connect Lenis scroll to ScrollTrigger
+lenis.on('scroll', ScrollTrigger.update);
+
+// ==========================================
+// HEADER SCROLL BEHAVIOR
+// ==========================================
+(function() {
+    const header = document.querySelector('.header');
+    const hero = document.querySelector('.section-hero');
+    if (!header || !hero) return;
+
+    let lastScroll = 0;
+
+    lenis.on('scroll', ({ scroll }) => {
+        const heroBottom = hero.offsetHeight;
+
+        // Transparent in hero, solid after
+        if (scroll > heroBottom - 50) {
+            header.classList.add('is-solid');
+        } else {
+            header.classList.remove('is-solid');
+        }
+
+        // Hide/show everywhere — starts from the very first scroll
+        if (scroll > lastScroll && scroll - lastScroll > 3) {
+            header.classList.add('is-hidden');
+        } else if (lastScroll > scroll && lastScroll - scroll > 3) {
+            header.classList.remove('is-hidden');
+        }
+
+        lastScroll = scroll;
+    });
+})();
+
+// ==========================================
+// INTRO LOADER
+// ==========================================
+(function() {
+    const loader = document.querySelector('.intro-loader');
+    if (!loader) return;
+
+    const icon = loader.querySelector('.logo-icon');
+    const yucca = loader.querySelector('.logo-yucca');
+    const packaging = loader.querySelector('.logo-packaging');
+
+    const tl = gsap.timeline({
+        onComplete() {
+            loader.style.pointerEvents = 'none';
+            initPageAnimations();
+        }
+    });
+
+    // Entrance
+    tl.set(loader, { autoAlpha: 1 })
+      .fromTo(icon, { scale: 0, transformOrigin: 'center center' },
+        { scale: 1, duration: 1.2, ease: 'power2.inOut' })
+      .fromTo(yucca, { y: 80, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 1.2, ease: 'power2.inOut' }, '<0.15')
+      .fromTo(packaging, { y: 90, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 1.2, ease: 'power2.inOut' }, '<0.05')
+
+    // Hold
+      .to({}, { duration: 0.6 })
+
+    // Exit
+      .to(icon, { scale: 0, y: -72, duration: 1.1, ease: 'power3.inOut' })
+      .to(yucca, { y: -60, autoAlpha: 0, duration: 0.8, ease: 'power3.inOut' }, '<')
+      .to(packaging, { y: -60, autoAlpha: 0, duration: 0.8, ease: 'power3.inOut' }, '<0.05')
+      .to(loader.querySelector('.intro-loader-bg'),
+        { autoAlpha: 0, duration: 1.2, ease: 'power1.inOut' }, '<0.2')
+      .set(loader, { display: 'none' });
+})();
+
+// ==========================================
+// TEXT SPLIT UTILITY
+// ==========================================
+function splitTextIntoLines(el) {
+    const text = el.textContent.trim();
+    el.innerHTML = '';
+    el.classList.add('split-lines');
+
+    // Use a temp element to get natural line breaks
+    const temp = document.createElement('span');
+    temp.style.cssText = 'visibility:hidden;position:absolute;white-space:pre-wrap;width:' + el.offsetWidth + 'px;font:' + getComputedStyle(el).font;
+    document.body.appendChild(temp);
+
+    const words = text.split(' ');
+    const lines = [];
+    let currentLine = '';
+
+    words.forEach(word => {
+        const testLine = currentLine ? currentLine + ' ' + word : word;
+        temp.textContent = testLine;
+        if (temp.offsetWidth > el.offsetWidth && currentLine) {
+            lines.push(currentLine);
+            currentLine = word;
+        } else {
+            currentLine = testLine;
+        }
+    });
+    if (currentLine) lines.push(currentLine);
+    document.body.removeChild(temp);
+
+    // If only one line, just use the full text
+    if (lines.length <= 1) {
+        const lineEl = document.createElement('div');
+        lineEl.className = 'line';
+        lineEl.style.overflow = 'hidden';
+        const inner = document.createElement('div');
+        inner.className = 'line-inner';
+        inner.textContent = text;
+        lineEl.appendChild(inner);
+        el.appendChild(lineEl);
+        return;
+    }
+
+    lines.forEach(lineText => {
+        const lineEl = document.createElement('div');
+        lineEl.className = 'line';
+        lineEl.style.overflow = 'hidden';
+        const inner = document.createElement('div');
+        inner.className = 'line-inner';
+        inner.textContent = lineText;
+        lineEl.appendChild(inner);
+        el.appendChild(lineEl);
+    });
+}
+
+// ==========================================
+// MEGA MENU ANIMATIONS
+// ==========================================
+(function() {
+    const navItems = document.querySelectorAll('.n-item-has-submenu');
+    const submenus = document.querySelectorAll('.n-submenu');
+    const navBg = document.querySelector('.nav-bg');
+    let activeId = null;
+    let closeTimeout = null;
+    const menuTimelines = {};
+
+    // Build a GSAP timeline for each submenu
+    submenus.forEach(submenu => {
+        const id = submenu.dataset.id;
+        const links = submenu.querySelectorAll('.n-submenu-link');
+        const cards = submenu.querySelectorAll('.n-card');
+        const cta = submenu.querySelector('.n-submenu-cta');
+        const divider = submenu.querySelector('.n-submenu-divider');
+        const images = submenu.querySelectorAll('.n-submenu-image');
+
+        const tl = gsap.timeline({ paused: true });
+
+        // Submenu panel entrance
+        tl.fromTo(submenu,
+            { autoAlpha: 0, y: -12 },
+            { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power3.out' }
+        );
+
+        // Nav background overlay
+        tl.fromTo(navBg,
+            { autoAlpha: 0 },
+            { autoAlpha: 1, duration: 0.4, ease: 'power2.out' },
+            '<'
+        );
+
+        // Links stagger in
+        if (links.length) {
+            tl.fromTo(links,
+                { yPercent: 40, autoAlpha: 0 },
+                { yPercent: 0, autoAlpha: 1, duration: 0.8, stagger: 0.06, ease: 'power3.out' },
+                '<0.1'
+            );
+        }
+
+        // Divider scale
+        if (divider) {
+            tl.fromTo(divider,
+                { scaleX: 0, transformOrigin: 'left center' },
+                { scaleX: 1, duration: 1, ease: 'power3.inOut' },
+                '<0.1'
+            );
+        }
+
+        // CTA
+        if (cta) {
+            tl.fromTo(cta,
+                { yPercent: 30, autoAlpha: 0 },
+                { yPercent: 0, autoAlpha: 1, duration: 0.8, ease: 'power3.out' },
+                '<0.1'
+            );
+        }
+
+        // Cards animate in with clip-path
+        if (cards.length) {
+            tl.fromTo(cards,
+                { clipPath: 'inset(0% 0% 100% 0%)', autoAlpha: 0 },
+                { clipPath: 'inset(0% 0% 0% 0%)', autoAlpha: 1, duration: 0.8, stagger: 0.08, ease: 'power3.inOut' },
+                '<0.05'
+            );
+        }
+
+        // Images
+        if (images.length) {
+            tl.fromTo(images,
+                { clipPath: 'inset(0% 0% 100% 0%)', autoAlpha: 0 },
+                { clipPath: 'inset(0% 0% 0% 0%)', autoAlpha: 1, duration: 0.8, stagger: 0.06, ease: 'power3.inOut' },
+                '<0.1'
+            );
+        }
+
+        menuTimelines[id] = tl;
+    });
+
+    function showMenu(id) {
+        if (closeTimeout) { clearTimeout(closeTimeout); closeTimeout = null; }
+        if (activeId === id) return;
+
+        // Hide previous
+        if (activeId && menuTimelines[activeId]) {
+            menuTimelines[activeId].reverse();
+            const prevItem = document.querySelector(`.n-item-has-submenu[data-id="${activeId}"]`);
+            if (prevItem) prevItem.classList.remove('active');
+        }
+
+        // Show new
+        const tl = menuTimelines[id];
+        const navItem = document.querySelector(`.n-item-has-submenu[data-id="${id}"]`);
+        if (tl && navItem) {
+            const submenu = document.querySelector(`.n-submenu[data-id="${id}"]`);
+            submenu.style.visibility = 'visible';
+            submenu.style.pointerEvents = 'all';
+            navItem.classList.add('active');
+            navBg.style.pointerEvents = 'all';
+            document.body.classList.add('menu-open');
+            tl.timeScale(1).restart();
+            activeId = id;
+        }
+    }
+
+    function hideMenu() {
+        closeTimeout = setTimeout(() => {
+            if (activeId && menuTimelines[activeId]) {
+                menuTimelines[activeId].timeScale(1.4).reverse();
+                const prevItem = document.querySelector(`.n-item-has-submenu[data-id="${activeId}"]`);
+                if (prevItem) prevItem.classList.remove('active');
+                navBg.style.pointerEvents = 'none';
+                document.body.classList.remove('menu-open');
+                activeId = null;
+            }
+        }, 120);
+    }
+
+    function cancelClose() {
+        if (closeTimeout) { clearTimeout(closeTimeout); closeTimeout = null; }
+    }
+
+    navItems.forEach(item => {
+        item.addEventListener('mouseenter', () => showMenu(item.dataset.id));
+        item.addEventListener('mouseleave', hideMenu);
+    });
+
+    submenus.forEach(submenu => {
+        submenu.addEventListener('mouseenter', cancelClose);
+        submenu.addEventListener('mouseleave', hideMenu);
+    });
+
+    navBg.addEventListener('click', () => {
+        cancelClose();
+        if (activeId && menuTimelines[activeId]) {
+            menuTimelines[activeId].timeScale(1.8).reverse();
+            navItems.forEach(n => n.classList.remove('active'));
+            navBg.style.pointerEvents = 'none';
+            document.body.classList.remove('menu-open');
+            activeId = null;
+        }
+    });
+})();
+
+// ==========================================
+// PAGE ANIMATIONS (triggered after loader)
+// ==========================================
+function initMarquee() {
+    document.querySelectorAll('.s-marquee-loop').forEach(loop => {
+        // Clone all items to double the content for seamless loop
+        const items = loop.innerHTML;
+        loop.innerHTML = items + items;
+    });
+}
+
+function initIndustries() {
+    const section = document.querySelector('.section-industries');
+    if (!section) return;
+
+    const items = section.querySelectorAll('.si-item');
+    const bgs = section.querySelectorAll('.si-bg');
+    let activeIndex = 0;
+
+    function activate(index) {
+        if (index === activeIndex) return;
+
+        const prev = items[activeIndex];
+        const next = items[index];
+
+        // Kill running tweens to prevent overlap
+        items.forEach(item => {
+            gsap.killTweensOf(item.querySelector('.si-item-text'));
+            gsap.killTweensOf(item.querySelector('.si-item-border'));
+            gsap.killTweensOf(item.querySelector('.si-item-link'));
+        });
+
+        // Toggle classes — CSS handles title crossfade + background transition
+        prev.classList.remove('is-active');
+        next.classList.add('is-active');
+
+        // Collapse previous content instantly
+        gsap.set(prev.querySelector('.si-item-text'), { maxHeight: 0, opacity: 0, marginTop: 0 });
+        gsap.set(prev.querySelector('.si-item-border'), { scaleX: 0, margin: '0px' });
+        gsap.set(prev.querySelector('.si-item-link'), { opacity: 0, maxHeight: 0, y: 8 });
+
+        // Reveal next content with staggered GSAP
+        gsap.fromTo(next.querySelector('.si-item-text'),
+            { maxHeight: 0, opacity: 0, marginTop: 0 },
+            { maxHeight: 250, opacity: 1, marginTop: 16, duration: 0.6, delay: 0.15, ease: 'power3.out' }
+        );
+        gsap.fromTo(next.querySelector('.si-item-border'),
+            { scaleX: 0, margin: '0px' },
+            { scaleX: 1, margin: '24px 0px 20px', duration: 0.7, delay: 0.25, ease: 'power3.out' }
+        );
+        gsap.fromTo(next.querySelector('.si-item-link'),
+            { opacity: 0, maxHeight: 0, y: 8 },
+            { opacity: 1, maxHeight: 60, y: 0, duration: 0.5, delay: 0.32, ease: 'power3.out' }
+        );
+
+        // Switch background
+        gsap.to(bgs[activeIndex], { opacity: 0, duration: 0.7, ease: 'power2.inOut' });
+        gsap.to(bgs[index], { opacity: 1, duration: 0.7, ease: 'power2.inOut' });
+
+        activeIndex = index;
+    }
+
+    // Initial state — first card content visible
+    gsap.set(items[0].querySelector('.si-item-text'), { maxHeight: 250, opacity: 1, marginTop: 16 });
+    gsap.set(items[0].querySelector('.si-item-border'), { scaleX: 1, margin: '24px 0px 20px' });
+    gsap.set(items[0].querySelector('.si-item-link'), { opacity: 1, maxHeight: 60, y: 0 });
+
+    items.forEach((item, i) => {
+        item.addEventListener('mouseenter', () => activate(i));
+        item.addEventListener('click', () => activate(i));
+    });
+
+    // Parallax on background images
+    bgs.forEach(bg => {
+        gsap.to(bg.querySelector('img'), {
+            yPercent: 15,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: section,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+    });
+
+    // Scroll-triggered entrance
+    gsap.fromTo(items,
+        { autoAlpha: 0, y: 40 },
+        {
+            autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out',
+            scrollTrigger: { trigger: section, start: 'top 70%', once: true }
+        }
+    );
+}
+
+function initPageAnimations() {
+
+    // --- MARQUEE ---
+    initMarquee();
+
+    // --- INDUSTRIES ---
+    initIndustries();
+
+    // --- HERO TITLE ---
+    const heroTitle = document.querySelector('.section-hero .s-title');
+    if (heroTitle) {
+        splitTextIntoLines(heroTitle);
+        gsap.fromTo(heroTitle.querySelectorAll('.line-inner'),
+            { yPercent: 100 },
+            { yPercent: 0, duration: 1.2, stagger: 0.08, ease: 'power3.out', delay: 0.1 }
+        );
+    }
+
+    // --- HERO SOLUTIONS CARDS ---
+    const solutionCards = document.querySelectorAll('.section-hero .s-solution');
+    if (solutionCards.length) {
+        gsap.fromTo(solutionCards,
+            { yPercent: 60, autoAlpha: 0 },
+            { yPercent: 0, autoAlpha: 1, duration: 1, stagger: 0.12, ease: 'power3.out', delay: 0.5 }
+        );
+
+        // GSAP hover timelines for each card
+        solutionCards.forEach(card => {
+            const titleText = card.querySelector('.s-solution-title-text');
+            const hover = card.querySelector('.s-solution-hover');
+            const text = card.querySelector('.s-solution-text');
+            const border = card.querySelector('.s-solution-border');
+            const link = card.querySelector('.s-solution-link');
+
+            const tl = gsap.timeline({ paused: true });
+
+            tl.to(titleText, { yPercent: -120, opacity: 0, duration: 0.35, ease: 'power3.in' }, 0)
+              .to(hover, { height: 'auto', opacity: 1, duration: 0.5, ease: 'power3.out' }, 0.15)
+              .to(border, { scaleX: 1, duration: 0.6, ease: 'power3.out' }, 0.25)
+              .to(link, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, 0.3);
+
+            card.addEventListener('mouseenter', () => tl.timeScale(1).play());
+            card.addEventListener('mouseleave', () => tl.timeScale(1.6).reverse());
+        });
+    }
+
+    // --- HERO BACKGROUND PARALLAX ---
+    const heroBg = document.querySelector('.section-hero .s-background img');
+    if (heroBg) {
+        gsap.to(heroBg, {
+            yPercent: 15,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.section-hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+    }
+
+    // --- SCROLL-TRIGGERED SECTIONS ---
+    // Mission section
+    const missionTitle = document.querySelector('.section-mission .s-title');
+    if (missionTitle) {
+        splitTextIntoLines(missionTitle);
+        gsap.fromTo(missionTitle.querySelectorAll('.line-inner'),
+            { yPercent: 100 },
+            {
+                yPercent: 0, duration: 0.8, stagger: 0.04, ease: 'power3.out',
+                scrollTrigger: { trigger: missionTitle, start: 'top 85%', once: true }
+            }
+        );
+    }
+
+    const missionLabel = document.querySelector('.section-mission .s-label');
+    if (missionLabel) {
+        gsap.fromTo(missionLabel,
+            { autoAlpha: 0, y: 20 },
+            {
+                autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out',
+                scrollTrigger: { trigger: missionLabel, start: 'top 90%', once: true }
+            }
+        );
+    }
+
+    // Stats
+    document.querySelectorAll('.s-stat').forEach((stat, i) => {
+        gsap.fromTo(stat,
+            { autoAlpha: 0, y: 40 },
+            {
+                autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: i * 0.1,
+                scrollTrigger: { trigger: stat, start: 'top 88%', once: true }
+            }
+        );
+    });
+
+    // Section titles & labels (generic)
+    document.querySelectorAll('.section-solutions .s-title, .section-products .s-title, .section-certifications .s-title, .section-cta .s-title, .section-faq .s-title').forEach(title => {
+        splitTextIntoLines(title);
+        gsap.fromTo(title.querySelectorAll('.line-inner'),
+            { yPercent: 100 },
+            {
+                yPercent: 0, duration: 0.8, stagger: 0.04, ease: 'power3.out',
+                scrollTrigger: { trigger: title, start: 'top 85%', once: true }
+            }
+        );
+    });
+
+    document.querySelectorAll('.section-solutions .s-label, .section-products .s-label, .section-certifications .s-label, .section-faq .s-label').forEach(label => {
+        gsap.fromTo(label,
+            { autoAlpha: 0, y: 20 },
+            {
+                autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out',
+                scrollTrigger: { trigger: label, start: 'top 90%', once: true }
+            }
+        );
+    });
+
+    // --- SOLUTION CARDS ---
+    document.querySelectorAll('.s-card').forEach((card, i) => {
+        gsap.fromTo(card,
+            { clipPath: 'inset(0% 0% 100% 0%)' },
+            {
+                clipPath: 'inset(0% 0% 0% 0%)', duration: 0.8, ease: 'power3.inOut',
+                scrollTrigger: { trigger: card, start: 'top 85%', once: true },
+                delay: i * 0.1
+            }
+        );
+
+        const img = card.querySelector('.s-card-image img');
+        if (img) {
+            gsap.fromTo(img,
+                { scale: 1.4 },
+                {
+                    scale: 1, duration: 1.6, ease: 'power3.out',
+                    scrollTrigger: { trigger: card, start: 'top 85%', once: true },
+                    delay: i * 0.1 + 0.05
+                }
+            );
+        }
+    });
+
+    // --- PRODUCT CARDS ---
+    document.querySelectorAll('.s-product').forEach((product, i) => {
+        gsap.fromTo(product,
+            { autoAlpha: 0, y: 50 },
+            {
+                autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out',
+                scrollTrigger: { trigger: product, start: 'top 88%', once: true },
+                delay: i * 0.08
+            }
+        );
+    });
+
+    // --- CERTIFICATION BADGES ---
+    document.querySelectorAll('.s-badge').forEach((badge, i) => {
+        gsap.fromTo(badge,
+            { autoAlpha: 0, y: 20, scale: 0.9 },
+            {
+                autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: 'power3.out',
+                scrollTrigger: { trigger: badge, start: 'top 90%', once: true },
+                delay: i * 0.04
+            }
+        );
+    });
+
+    // --- CTA SECTION ---
+    const ctaImage = document.querySelector('.section-cta .s-image img');
+    if (ctaImage) {
+        gsap.fromTo(ctaImage,
+            { autoAlpha: 0, y: 40, scale: 0.95 },
+            {
+                autoAlpha: 1, y: 0, scale: 1, duration: 1, ease: 'power3.out',
+                scrollTrigger: { trigger: ctaImage, start: 'top 85%', once: true }
+            }
+        );
+    }
+
+    const ctaBtn = document.querySelector('.section-cta .btn');
+    if (ctaBtn) {
+        gsap.fromTo(ctaBtn,
+            { autoAlpha: 0, y: 20 },
+            {
+                autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out',
+                scrollTrigger: { trigger: ctaBtn, start: 'top 90%', once: true }
+            }
+        );
+    }
+
+    // --- FAQ ITEMS ---
+    document.querySelectorAll('.s-faq').forEach((faq, i) => {
+        gsap.fromTo(faq,
+            { autoAlpha: 0, y: 20 },
+            {
+                autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out',
+                scrollTrigger: { trigger: faq, start: 'top 90%', once: true },
+                delay: i * 0.06
+            }
+        );
+    });
+
+    // --- FOOTER ---
+    const footer = document.querySelector('.footer');
+    if (footer) {
+        gsap.fromTo(footer.querySelectorAll('.f-column'),
+            { autoAlpha: 0, y: 30 },
+            {
+                autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out',
+                scrollTrigger: { trigger: footer, start: 'top 90%', once: true }
+            }
+        );
+    }
+}
+
+// If no intro loader, start animations immediately
+if (!document.querySelector('.intro-loader')) {
+    initPageAnimations();
+}
+</script>
+</body>
+</html>
